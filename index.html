@@ -3,17 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sharad Rathore - Web Development & AI Solutions</title>
+    <title>Sharad Rathore - Web Developer | Home</title>
+    
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" /> 
 </head>
 <body>
-
-    <div id="particles-js"></div>
+    <div id="preloader">
+        <div class="loader-ring"></div>
+        <p>Loading Sharad Rathore...</p>
+    </div>
+    
+    <div id="particles-js"></div> 
 
     <header>
         <div class="header-container">
-            <a href="index.html" class="logo">Sharad Rathore</a>
+            <div class="logo">Sharad Rathore</div>
             <nav>
                 <a href="index.html" class="active">Home</a>
                 <a href="portfolio.html">Portfolio</a>
@@ -22,184 +29,124 @@
         </div>
     </header>
 
-    <section class="hero-section">
-        
+    <main class="hero-section">
         <div class="rings-container">
             <div class="ring blue-ring-1"></div>
             <div class="ring yellow-ring-2"></div>
             <div class="ring blue-ring-3"></div>
         </div>
-
-        <div class="center-content">
+        
+        <div class="center-content" data-aos="fade-up" data-aos-delay="100">
             <h1>SHARAD RATHORE</h1>
-            <p>
-                Full-Stack Solutions for Your Business Growth:
-                <br>
-                Web Development • Maintenance • Custom AI Agents.
-            </p>
-
-            <h2 class="marketing-headline">
-                Need a High-Performing Website or AI Marketing Agent?
-            </h2>
-
-            <div class="action-buttons">
-                <a href="contact.html" class="button primary-btn">
-                    वेबसाइट या AI के लिए मैसेज करें
-                </a>
-                
-                <a href="tel:+918218312429" class="button secondary-btn">
-                    <i class="fas fa-phone-alt"></i> अभी कॉल करें
-                </a>
+            <p>नमस्ते, मैं *शरत राठौर* हूँ।</p>
+            <p>मैं एक वेब डेवलपर हूँ जो कल्पना को वास्तविकता में बदलने के लिए तैयार है।</p>
+            
+            <div class="action-buttons" data-aos="zoom-in" data-aos-delay="300">
+                <a href="portfolio.html" class="button primary-btn">Portfolio देखें</a>
+                <a href="contact.html" class="button secondary-btn">मुझसे संपर्क करें</a>
             </div>
 
-            <div class="social-icons">
-                <a href="https://www.instagram.com/codingwithsharadrathore" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <div class="social-icons" data-aos="fade-up" data-aos-delay="500">
+                <a href="https://www.instagram.com/racer_sharad_rathore7?igsh=d3M0bXpnMWxmYmE4" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 <a href="https://wa.me/918218312429" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                <a href="#" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                <a href="#" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://youtube.com/@codingwithsharadrathore?si=dlG8iapeKSlYmovd" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="#" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a> 
                 <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
             </div>
-            
-            <div class="skills-stack">
-                <h3>My Expertise Stack</h3>
-                <div class="skill-icons-container">
-                    <i class="fab fa-html5 skill-icon-glow" style="color: #e34c26;" title="HTML5"></i>
-                    <i class="fab fa-css3-alt skill-icon-glow" style="color: #264de4;" title="CSS3"></i>
-                    <i class="fab fa-js-square skill-icon-glow" style="color: #f0db4f;" title="JavaScript"></i>
-                    <i class="fab fa-wordpress skill-icon-glow" style="color: #21759b;" title="WordPress"></i>
-                    <i class="fab fa-git-alt skill-icon-glow" style="color: #f14e32;" title="Git/GitHub"></i>
-                    <i class="fas fa-robot skill-icon-glow" style="color: #00ffff;" title="AI/Automation"></i>
-                </div>
+        </div>
+        
+        <div class="skills-stack" data-aos="fade-up" data-aos-delay="700">
+            <h3>My Core Stack</h3>
+            <div class="skill-icons-container">
+                <i class="fab fa-html5 skill-icon-glow" style="color: #E44D26;"></i>
+                <i class="fab fa-css3-alt skill-icon-glow" style="color: #264DE4;"></i>
+                <i class="fab fa-js-square skill-icon-glow" style="color: #F7DF1E;"></i>
+                <i class="fab fa-react skill-icon-glow" style="color: #61DAFB;"></i>
+                <i class="fab fa-github skill-icon-glow" style="color: #FFFFFF;"></i>
             </div>
         </div>
-
-    </section>
-
-    <footer>
-        <p>&copy; 2025 Sharad Rathore | Powered by Code & AI | Made with ❤</p>
-    </footer>
-
+    </main>
+    
     <div class="ai-assistant-container">
-        <div class="ai-character-icon" id="aiCharacterIcon">
-            <i class="fas fa-robot"></i>
-        </div>
-
-        <div class="ai-chatbox" id="aiChatbox">
-            <div class="ai-output" id="aiOutput">
-                <div class="chat-message ai">Hello! I'm Sharad's AI Marketing Assistant. How can I help you find the best solution for your business?</div>
-            </div>
-            <input type="text" id="ai-input" placeholder="Ask me about Sharad's services...">
+        <div class="ai-character-icon" id="ai-char-icon"><i class="fas fa-robot"></i></div>
+        
+        <button class="ai-assistant-btn" id="ai-assistant-btn">
+            <i class="fas fa-robot"></i> AI Assistant
+        </button>
+        <div class="ai-chatbox" id="ai-chatbox">
+            <div class="ai-output" id="ai-output"></div>
+            <input type="text" id="ai-input" placeholder="Ask a question..." />
         </div>
     </div>
-
-    <button onclick="goToTopFunction()" id="goToTopBtn" class="go-to-top-btn" title="Go to top">
+    
+    <button id="goToTopBtn" class="go-to-top-btn" title="Go to top">
         <i class="fas fa-arrow-up"></i>
     </button>
     
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <footer>
+        <p>© 2025 Sharad Rathore. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS('particles-js', {
+            "particles": {
+                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#00ffff" }, 
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.5, "random": false },
+                "size": { "value": 3, "random": true },
+                "line_linked": { "enable": true, "distance": 150, "color": "#00ffff", "opacity": 0.4, "width": 1 },
+                "move": { "enable": true, "speed": 6, "direction": "none", "random": false, "straight": false, "out_mode": "out" }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
+                "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 1 } }, "push": { "particles_nb": 4 } }
+            },
+            "retina_detect": true
+        });
+    </script>
+    
+    <script src="ai.assistant.js"></script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> 
+    <script>
+      AOS.init({
+        duration: 1000, 
+        once: true,     
+        easing: 'ease-in-out', 
+      });
+    </script>
     
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            
-            // --- AI ASSISTANT ELEMENTS ---
-            const aiChatbox = document.getElementById('aiChatbox');
-            const aiCharacterIcon = document.getElementById('aiCharacterIcon');
-            const aiOutput = document.getElementById('aiOutput');
-            const aiInput = document.getElementById('ai-input');
-            
-            // AI Marketing Assistant का नया प्रॉम्प्ट (आपका नया काम)
-            const AI_INITIAL_PROMPT = `
-नमस्ते! मैं शरत राठौर का AI मार्केटिंग असिस्टेंट हूँ। मेरा प्राथमिक काम उनकी सेवाओं को प्रमोट करना है।
-
-*हम क्या करते हैं:*
-1.  वेबसाइट डेवलपमेंट (HTML/CSS, WordPress/E-commerce)
-2.  वेबसाइट मेंटेनेंस और अपग्रेड
-3.  कस्टम AI एजेंट सेटअप (आपके बिज़नेस के लिए)
-
-*मैं आपकी क्या मदद कर सकता हूँ?*
-1.  मैं आपको Sharad की सेवाओं के बारे में बता सकता हूँ।
-2.  मैं आपको उनकी सेवाओं के लिए 'Contact' पेज पर जाने या 'अभी कॉल करें' बटन का उपयोग करने के लिए कह सकता हूँ।
-3.  मैं आपके बिज़नेस के लिए AI एजेंट के डेमो विचार दे सकता हूँ।
-
-आप मुझसे Sharad की सेवाओं के बारे में कुछ भी पूछ सकते हैं।`;
-
-            // Function to handle AI response (Simplified for demo)
-            const getAiResponse = (userInput) => {
-                let response = "";
-                const lowerInput = userInput.toLowerCase();
-
-                // Check for marketing keywords
-                if (lowerInput.includes('website') || lowerInput.includes('web development') || lowerInput.includes('website banwana')) {
-                    response = Sharad उच्च-गुणवत्ता वाली, तेज़ वेबसाइट्स (स्टैटिक और WordPress) बनाने में माहिर हैं। अगर आपको एक नई वेबसाइट बनवानी है, तो कृपया 'वेबसाइट या AI के लिए मैसेज करें' बटन पर क्लिक करें।;
-                } else if (lowerInput.includes('ai agent') || lowerInput.includes('ai assistant') || lowerInput.includes('ai set up') || lowerInput.includes('ai')) {
-                    response = Sharad आपके बिज़नेस के लिए कस्टम AI एजेंट्स (जैसे रिसर्च या ग्राहक सेवा) सेट अप कर सकते हैं। यह आपकी मार्केटिंग को ऑटोमेट कर सकता है। अधिक जानने के लिए कृपया उन्हें कॉल करें: +918218312429।; // Updated Number
-                } else if (lowerInput.includes('maintenance') || lowerInput.includes('maintain') || lowerInput.includes('मेंटेनेंस') || lowerInput.includes('अपग्रेड')) {
-                    response = पुरानी वेबसाइट्स को नया और सुरक्षित बनाने के लिए Sharad से बेहतर कोई नहीं। वह मासिक मेंटेनेंस प्लान भी देते हैं। उन्हें अपनी समस्या बताएं: 'वेबसाइट या AI के लिए मैसेज करें' बटन पर क्लिक करें।;
-                } else if (lowerInput.includes('rate') || lowerInput.includes('cost') || lowerInput.includes('कीमत') || lowerInput.includes('kitne ka')) {
-                    response = कीमतें प्रोजेक्ट की जटिलता पर निर्भर करती हैं। एक साधारण वेबसाइट ₹6,000 से शुरू हो सकती है। सही कीमत जानने के लिए कृपया 'Contact' पेज पर पूरी जानकारी भेजें।;
-                } else if (lowerInput.includes('hello') || lowerInput.includes('hi') || lowerInput.includes('namaste')) {
-                     response = नमस्ते! मैं Sharad का मार्केटिंग असिस्टेंट हूँ। मैं आपके बिज़नेस के लिए वेबसाइट या AI समाधान कैसे ढूँढ सकता हूँ?;
-                } else {
-                    response = यह एक अच्छा सवाल है! Sharad से सीधे बात करने के लिए, आप 'अभी कॉल करें' बटन का उपयोग कर सकते हैं, या अपनी ज़रूरतें 'Contact' पेज पर लिख सकते हैं।;
-                }
-                
-                // Display response
-                displayMessage(response, 'ai');
-            };
-
-            // Function to display messages in the chatbox
-            const displayMessage = (message, role) => {
-                const messageDiv = document.createElement('div');
-                messageDiv.classList.add('chat-message', role);
-                messageDiv.textContent = message;
-                aiOutput.appendChild(messageDiv);
-                aiOutput.scrollTop = aiOutput.scrollHeight; 
-            };
-
-            // Event listener for AI input (Enter key)
-            if(aiInput) {
-                aiInput.addEventListener('keypress', function (e) {
-                    if (e.key === 'Enter' && aiInput.value.trim() !== '') {
-                        const userInput = aiInput.value.trim();
-                        displayMessage(userInput, 'you');
-                        aiInput.value = '';
-                        getAiResponse(userInput);
-                    }
-                });
+        window.addEventListener('load', function() {
+            const preloader = document.getElementById('preloader');
+            if (preloader) {
+                preloader.style.opacity = '0';
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                }, 500); 
             }
+        });
+    </script>
+    
+    <script>
+        const goToTopBtn = document.getElementById("goToTopBtn");
 
-            // Toggle chatbox visibility - This is the key fix
-            if(aiCharacterIcon) {
-                aiCharacterIcon.addEventListener('click', () => {
-                    aiChatbox.style.display = aiChatbox.style.display === 'flex' ? 'none' : 'flex';
-                });
+        window.onscroll = function() {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                goToTopBtn.style.display = "block";
+            } else {
+                goToTopBtn.style.display = "none";
             }
-            
-            // --- GO TO TOP BUTTON LOGIC ---
-            const goToTopBtn = document.getElementById("goToTopBtn");
+        };
 
-            if(goToTopBtn) {
-                window.onscroll = function() {scrollFunction()};
-
-                function scrollFunction() {
-                    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-                        goToTopBtn.style.display = "block";
-                    } else {
-                        goToTopBtn.style.display = "none";
-                    }
-                }
-                
-                window.goToTopFunction = function() {
-                    document.body.scrollTop = 0; 
-                    document.documentElement.scrollTop = 0; 
-                }
-            }
-            
-            // Initialize particles.js for the background effect
-            particlesJS.load('particles-js', 'particles.json', function() {
-                console.log('particles.js loaded - callback');
+        goToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
             });
-
         });
     </script>
 </body>
