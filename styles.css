@@ -1,0 +1,732 @@
+/* --- Global Variables and Base Setup --- */
+:root {
+    --dark-bg: #0a0a2a; 
+    --primary-color: #00ffff; 
+    --secondary-color: #ffd700; 
+    --text-color: #ffffff;
+    --link-hover: #00cccc;
+    --blue-glow: #00aaff; 
+    --yellow-glow: #ffdd00; 
+    --ring-glow-color: rgba(0, 255, 255, 0.5); 
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: color 0.3s, background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+
+body {
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden; 
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+a:hover {
+    color: var(--link-hover);
+}
+
+/* --- PRELOADER STYLING (Glowing Loader) --- */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--dark-bg); 
+    z-index: 10000; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease-out;
+}
+
+.loader-ring {
+    width: 80px;
+    height: 80px;
+    border: 5px solid rgba(0, 255, 255, 0.2); 
+    border-top: 5px solid var(--primary-color); 
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    box-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color);
+}
+
+#preloader p {
+    color: var(--secondary-color);
+    margin-top: 20px;
+    font-size: 1.1em;
+    text-shadow: 0 0 5px var(--secondary-color);
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+/* --- END PRELOADER STYLING --- */
+
+/* --- Particles Background Container --- */
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1; 
+    background-color: transparent; 
+}
+
+/* Ensure main content is visible above particles */
+.hero-section, .page-content-section, header, footer, .ai-assistant-container, #goToTopBtn {
+    position: relative; 
+    z-index: 10; 
+}
+
+/* --- Header and Navigation --- */
+header {
+    background-color: rgba(0, 0, 0, 0.5); 
+    backdrop-filter: blur(5px);
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    border-bottom: 1px solid rgba(0, 255, 255, 0.1);
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-shadow: 0 0 5px var(--blue-glow);
+}
+
+header nav a {
+    margin-left: 25px;
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 5px;
+    color: var(--text-color);
+}
+
+header nav a:hover,
+header nav a.active {
+    color: var(--primary-color);
+}
+
+header nav a.active::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: var(--primary-color);
+    left: 0;
+    bottom: 0;
+    box-shadow: 0 0 8px var(--primary-color);
+}
+
+/* --- Hero Section and Rings (Background Effect) --- */
+.hero-section {
+    position: relative;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 80px; 
+    padding-bottom: 50px;
+}
+
+.rings-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    animation: rotate 20s linear infinite;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.blue-ring-1 {
+    width: 500px;
+    height: 500px;
+    border-color: rgba(0, 170, 255, 0.4);
+    box-shadow: 0 0 50px rgba(0, 170, 255, 0.7);
+    animation-duration: 25s;
+}
+
+.yellow-ring-2 {
+    width: 450px;
+    height: 450px;
+    border-color: rgba(255, 221, 0, 0.4);
+    box-shadow: 0 0 40px rgba(255, 221, 0, 0.6);
+    animation-duration: 20s;
+}
+
+.blue-ring-3 {
+    width: 400px;
+    height: 400px;
+    border-color: rgba(0, 170, 255, 0.6);
+    box-shadow: 0 0 30px rgba(0, 170, 255, 0.8);
+    animation-duration: 15s;
+}
+
+@keyframes rotate {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+/* --- Central Content and Text --- */
+.center-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+    max-width: 90%;
+    margin-bottom: 40px; 
+}
+
+.center-content h1 {
+    font-size: 3em;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px var(--blue-glow);
+    letter-spacing: 2px;
+}
+
+.center-content p {
+    font-size: 1.2em;
+    margin: 10px 0 30px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* --- Buttons --- */
+.action-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.button {
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: var(--dark-bg);
+    box-shadow: 0 0 10px var(--primary-color);
+}
+
+.primary-btn:hover {
+    background-color: var(--link-hover);
+    box-shadow: 0 0 15px var(--link-hover);
+}
+
+.secondary-btn {
+    background: none;
+    border: 2px solid var(--secondary-color);
+    color: var(--secondary-color);
+}
+
+.secondary-btn:hover {
+    background-color: var(--secondary-color);
+    color: var(--dark-bg);
+    box-shadow: 0 0 15px var(--secondary-color);
+}
+
+/* --- Social Icons (Glassy Effect) --- */
+.social-icons {
+    margin-top: 30px;
+    display: flex; 
+    justify-content: center;
+    gap: 15px; 
+}
+
+.social-icons a {
+    font-size: 1.5em;
+    width: 45px; 
+    height: 45px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    
+    /* Glassy Effect */
+    background: rgba(255, 255, 255, 0.08); 
+    border: 1px solid rgba(255, 255, 255, 0.2); 
+    backdrop-filter: blur(5px); 
+    -webkit-backdrop-filter: blur(5px); 
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); 
+    
+    color: var(--text-color); 
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
+}
+
+/* Individual Icon Colors on Hover */
+.social-icons a:hover {
+    transform: translateY(-5px);
+}
+.social-icons a .fa-instagram {color: #E4405F;}
+.social-icons a .fa-whatsapp {color: #25D366;}
+.social-icons a .fa-youtube {color: #FF0000;}
+.social-icons a .fa-github {color: #6e5494;}
+.social-icons a .fa-linkedin-in {color: #0077B5;}
+
+/* Reapplying hover glow for each specific icon */
+.social-icons a[aria-label="Instagram"]:hover {
+    box-shadow: 0 0 15px #E4405F;
+}
+.social-icons a[aria-label="WhatsApp"]:hover {
+    box-shadow: 0 0 15px #25D366;
+}
+.social-icons a[aria-label="YouTube"]:hover {
+    box-shadow: 0 0 15px #FF0000;
+}
+.social-icons a[aria-label="GitHub"]:hover {
+    box-shadow: 0 0 15px #6e5494;
+}
+.social-icons a[aria-label="LinkedIn"]:hover {
+    box-shadow: 0 0 15px #0077B5;
+}
+
+/* --- Skills Section Styling --- */
+.skills-stack {
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.skills-stack h3 {
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    text-shadow: 0 0 5px var(--yellow-glow);
+}
+
+.skill-icons-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.skill-icon-glow {
+    font-size: 4em; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+    cursor: default;
+}
+
+.skill-icon-glow:hover {
+    transform: translateY(-8px) scale(1.1); 
+    color: var(--secondary-color);
+    text-shadow: 0 0 20px var(--secondary-color), 0 0 30px var(--secondary-color);
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.8em;
+    position: relative;
+    z-index: 10;
+}
+
+/* --- AI Assistant Styling --- */
+.ai-assistant-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000; 
+}
+
+/* --- AI Character Icon Styling --- */
+.ai-character-icon {
+    position: absolute;
+    bottom: 50px; 
+    right: 50px; 
+    z-index: 1001; 
+    
+    background: var(--dark-bg);
+    color: var(--primary-color);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.2em;
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 0 20px var(--primary-color), inset 0 0 10px var(--primary-color);
+    cursor: pointer; 
+    
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+/* --- END AI Character Icon Styling --- */
+
+
+.ai-assistant-btn {
+    background: var(--blue-glow); 
+    color: var(--dark-bg);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1em;
+    box-shadow: 0 0 15px var(--blue-glow);
+    transition: all 0.3s;
+}
+
+.ai-assistant-btn:hover {
+    background: #00cccc;
+    box-shadow: 0 0 20px #00ffff;
+}
+
+.ai-assistant-btn i {
+    margin-right: 8px;
+}
+
+.ai-chatbox {
+    width: 300px;
+    height: 350px;
+    background: rgba(0, 0, 0, 0.9);
+    border: 2px solid var(--yellow-glow);
+    border-radius: 10px;
+    box-shadow: 0 0 20px var(--yellow-glow);
+    position: absolute;
+    bottom: 60px; 
+    right: 0;
+    display: none; 
+    flex-direction: column;
+    padding: 10px;
+    font-family: Arial, 'Noto Sans', 'Segoe UI', Tahoma, Geneva, Verdana, 'Helvetica Neue', sans-serif; 
+}
+
+/* AI Output Container for Conversation History */
+.ai-output {
+    flex-grow: 1;
+    overflow-y: auto;
+    color: #00ff00; 
+    padding: 5px;
+    font-size: 0.9em;
+    line-height: 1.4;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    white-space: pre-wrap; 
+    display: flex; 
+    flex-direction: column; 
+}
+
+/* Styling for message bubbles */
+.chat-message {
+    padding: 5px 0;
+    margin: 3px 0;
+    border-radius: 5px;
+    font-size: 0.9em;
+    line-height: 1.3;
+}
+
+.chat-message.you {
+    text-align: right;
+    color: var(--yellow-glow);
+}
+
+.chat-message.ai {
+    text-align: left;
+    color: #00ff00;
+}
+
+#ai-input {
+    width: 100%; 
+    padding: 8px;
+    margin-top: 10px;
+    border: 1px solid var(--blue-glow);
+    background: var(--dark-bg);
+    color: var(--yellow-glow);
+    border-radius: 5px;
+    outline: none;
+}
+
+/* --- Go to Top Button Styling --- */
+.go-to-top-btn {
+    display: none; 
+    position: fixed;
+    bottom: 90px; 
+    right: 20px;
+    z-index: 999;
+    border: none;
+    outline: none;
+    background-color: var(--secondary-color);
+    color: var(--dark-bg);
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 18px;
+    box-shadow: 0 0 15px var(--secondary-color);
+    transition: all 0.3s;
+}
+
+.go-to-top-btn:hover {
+    background-color: #ffaa00;
+    box-shadow: 0 0 20px #ffaa00;
+    transform: scale(1.05);
+}
+
+
+/* --- PORTFOLIO & CONTACT PAGE LAYOUTS --- */
+
+.page-content-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    /* FINAL FIX: Portfolio और Contact के लिए padding-top 120px से बढ़ाकर 130px किया गया */
+    padding: 130px 20px 50px; 
+    min-height: 100vh;
+    text-align: center;
+}
+
+.page-content-section h2 {
+    font-size: 2.5em;
+    color: var(--secondary-color);
+    margin-bottom: 50px; 
+    text-shadow: 0 0 10px var(--yellow-glow);
+}
+
+/* --- Portfolio Specific Styling --- */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding-top: 20px;
+}
+
+.project-card {
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: left;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.1);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px var(--blue-glow);
+}
+
+.project-card h3 {
+    color: var(--primary-color);
+    margin: 15px 0 5px;
+    padding: 0 15px;
+}
+
+.project-card p {
+    color: rgba(255, 255, 255, 0.8);
+    padding: 0 15px 15px;
+    font-size: 0.9em;
+}
+
+.project-card a.button {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    background-color: var(--primary-color);
+    color: var(--dark-bg);
+    margin-top: auto; 
+}
+
+
+/* --- Contact Specific Styling --- */
+.contact-card {
+    background: rgba(0, 0, 0, 0.7);
+    border: 2px solid var(--yellow-glow);
+    border-radius: 10px;
+    padding: 40px;
+    width: 60%;
+    margin: 40px auto;
+    box-shadow: 0 0 30px rgba(255, 221, 0, 0.4);
+    text-align: left;
+}
+
+.contact-card form label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+
+.contact-card form input,
+.contact-card form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--primary-color);
+    color: var(--text-color);
+    border-radius: 5px;
+    outline: none;
+}
+
+.contact-card form button {
+    background-color: var(--primary-color);
+    color: var(--dark-bg);
+    border: none;
+    padding: 12px 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 0 10px var(--primary-color);
+}
+
+.contact-card form button:hover {
+    background-color: var(--link-hover);
+    box-shadow: 0 0 15px var(--link-hover);
+}
+
+
+/* ================================================= */
+/* --- MOBILE RESPONSIVENESS (for screens < 768px) --- */
+/* ================================================= */
+
+@media (max-width: 768px) {
+    
+    /* Header (Navigation) */
+    header {
+        padding: 15px 0; 
+    }
+    
+    header .header-container { 
+        flex-direction: column; 
+        text-align: center; 
+        padding: 10px 20px; 
+    }
+    
+    /* Logo और Navigation के बीच स्पेस */
+    header .logo {
+        margin-bottom: 8px; 
+    }
+    
+    /* FINAL FIX: Navigation Links के ऊपर और स्पेस */
+    header nav { 
+        margin-top: 10px; 
+    }
+    header nav a { 
+        margin: 0 8px; 
+        font-size: 0.9em; 
+    }
+
+    /* Main Content (Rings and Text) */
+    .hero-section { 
+        padding: 80px 10px 50px 10px; 
+    }
+    
+    .center-content { 
+        width: 90%; 
+        padding: 30px; 
+    }
+    
+    /* Home Page पर H1 के ऊपर और नीचे जगह */
+    .center-content h1 { 
+        font-size: 2.5em; 
+        margin-top: 20px; 
+        margin-bottom: 15px; 
+    }
+    
+    .center-content p {
+        font-size: 1.1em;
+        margin: 8px 0 25px; 
+    }
+    
+    .action-buttons { 
+        flex-direction: column; 
+        gap: 10px; 
+    }
+    .button { 
+        width: 100%; 
+        margin: 0; 
+    }
+    .rings-container .ring { opacity: 0.2; }
+    .blue-ring-1 { height: 300px; width: 300px; }
+    .yellow-ring-2 { height: 250px; width: 250px; }
+    .blue-ring-3 { height: 200px; width: 200px; }
+
+    /* Portfolio/Contact Pages (Content) */
+    .contact-card { width: 100%; padding: 20px; margin: 20px auto; }
+    
+    /* AI Assistant (Mobile position fix) */
+    .ai-assistant-container {
+        bottom: 10px; right: auto; left: 10px; width: calc(100% - 20px); 
+    }
+    
+    .ai-assistant-btn { width: 100%; }
+    
+    .ai-chatbox {
+        width: 100%; height: 280px; bottom: 50px; right: auto; left: 0;
+    }
+    
+    /* Hide the floating icon on mobile */
+    .ai-character-icon {
+        display: none;
+    }
+    
+    /* Go to Top Button (Shifted up on mobile to avoid AI button overlap) */
+    .go-to-top-btn {
+        bottom: 65px; 
+        right: 10px;
+        padding: 12px;
+        font-size: 16px;
+    }
+    
+    /* Skills Stack */
+    .skill-icons-container {
+        gap: 10px;
+    }
+    .skill-icon-glow {
+        font-size: 3em;
+    }
+}

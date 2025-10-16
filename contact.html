@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sharad Rathore - Web Developer | Contact</title>
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" /> 
+</head>
+<body>
+    <div id="preloader">
+        <div class="loader-ring"></div>
+        <p>Loading Sharad Rathore...</p>
+    </div>
+    
+    <div id="particles-js"></div> 
+    
+    <header>
+        <div class="header-container">
+            <div class="logo">Sharad Rathore</div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="contact.html" class="active">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page-content-section">
+        <h2 data-aos="fade-down">CONTACT ME</h2>
+        
+        <div class="contact-card" data-aos="zoom-in" data-aos-delay="200">
+            <h2>Reach Out!</h2>
+            
+            <form id="contactForm" method="POST">
+                
+                <label for="name">आपका नाम (Your Name)</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">ईमेल (Email)</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="subject">विषय (Subject)</label>
+                <input type="text" id="subject" name="subject" required>
+
+                <label for="message">संदेश (Message)</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <button type="submit" class="button primary-btn">संदेश भेजें</button>
+                
+                <div id="formStatus" style="margin-top: 20px; color: #00ff00; font-weight: bold;"></div>
+            </form>
+            
+            <p style="margin-top: 30px; font-size: 1.1em; color: #fff;">
+                या सीधे संपर्क करें:
+            </p>
+            <p style="color: var(--secondary-color);">
+                <i class="fas fa-phone-alt"></i> +91 82183 12429
+            </p>
+        </div>
+    </main>
+    
+    <button id="goToTopBtn" class="go-to-top-btn" title="Go to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <footer>
+        <p>© 2025 Sharad Rathore. All rights reserved.</p>
+    </footer>
+
+    <script>
+      const form = document.getElementById('contactForm');
+      const formStatus = document.getElementById('formStatus');
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault(); 
+        
+        // --- TEMPORARY DISABLE FOR OFFLINE USE ---
+        formStatus.style.color = '#ffdd00';
+        formStatus.innerHTML = '⚠ *कृपया ध्यान दें:* संदेश भेजने का कार्य अभी अस्थायी रूप से अक्षम है। कृपया सीधे फ़ोन या WhatsApp पर संपर्क करें।';
+        // --- END TEMPORARY DISABLE ---
+        
+        /* // जब आपको Formspree ID मिल जाए, तो इन लाइनों को (/) और (/) हटा दें 
+        // और Formspree action को <form> टैग में जोड़ दें।
+        
+        // formStatus.innerHTML = '<i class="fas fa-spinner fa-spin"></i> संदेश भेजा जा रहा है...';
+        // formStatus.style.color = '#fff';
+
+        // const data = new FormData(form);
+        
+        // try {
+        //     const response = await fetch(e.target.action, {
+        //         method: form.method,
+        //         body: data,
+        //         headers: { 'Accept': 'application/json' }
+        //     });
+
+        //     if (response.ok) {
+        //         formStatus.style.color = '#00ff00';
+        //         formStatus.innerHTML = '✅ *शरद को आपका मैसेज भेज दिया गया है!*';
+        //         form.reset(); 
+        //     } else {
+        //         formStatus.style.color = '#ff4444';
+        //         formStatus.innerHTML = '❌ संदेश भेजने में कोई त्रुटि आई।';
+        //     }
+        // } catch (error) {
+        //     formStatus.style.color = '#ff4444';
+        //     formStatus.innerHTML = '❌ नेटवर्क त्रुटि।';
+        // }
+        */
+      });
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS('particles-js', {
+            "particles": {
+                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#00ffff" }, 
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.5, "random": false },
+                "size": { "value": 3, "random": true },
+                "line_linked": { "enable": true, "distance": 150, "color": "#00ffff", "opacity": 0.4, "width": 1 },
+                "move": { "enable": true, "speed": 6, "direction": "none", "random": false, "straight": false, "out_mode": "out" }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
+                "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 1 } }, "push": { "particles_nb": 4 } }
+            },
+            "retina_detect": true
+        });
+    </script>
+    
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> 
+    <script>
+      AOS.init({
+        duration: 1000, 
+        once: true,     
+        easing: 'ease-in-out', 
+      });
+    </script>
+    
+    <script>
+        window.addEventListener('load', function() {
+            const preloader = document.getElementById('preloader');
+            if (preloader) {
+                preloader.style.opacity = '0';
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                }, 500); 
+            }
+        });
+    </script>
+    
+    <script>
+        const goToTopBtn = document.getElementById("goToTopBtn");
+
+        window.onscroll = function() {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                goToTopBtn.style.display = "block";
+            } else {
+                goToTopBtn.style.display = "none";
+            }
+        };
+
+        goToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
