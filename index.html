@@ -101,21 +101,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             
-            // --- 1. PRELOADER LOGIC (REMOVED) ---
-            // If you added back the preloader HTML, uncomment the code below:
-            /*
-            const preloader = document.getElementById('preloader');
-            if (preloader) {
-                setTimeout(() => {
-                    preloader.style.opacity = '0';
-                    setTimeout(() => {
-                        preloader.style.display = 'none';
-                    }, 500); 
-                }, 1500); 
-            }
-            */
-
-            // --- 2. AI ASSISTANT LOGIC (Marketing Focus) ---
+            // --- AI ASSISTANT ELEMENTS ---
             const aiChatbox = document.getElementById('aiChatbox');
             const aiCharacterIcon = document.getElementById('aiCharacterIcon');
             const aiOutput = document.getElementById('aiOutput');
@@ -123,7 +109,7 @@
             
             // AI Marketing Assistant का नया प्रॉम्प्ट (आपका नया काम)
             const AI_INITIAL_PROMPT = `
-नमस्ते! मैं शरद राठौर का AI मार्केटिंग असिस्टेंट हूँ। मेरा प्राथमिक काम उनकी सेवाओं को प्रमोट करना है।
+नमस्ते! मैं शरत राठौर का AI मार्केटिंग असिस्टेंट हूँ। मेरा प्राथमिक काम उनकी सेवाओं को प्रमोट करना है।
 
 *हम क्या करते हैं:*
 1.  वेबसाइट डेवलपमेंट (HTML/CSS, WordPress/E-commerce)
@@ -146,7 +132,7 @@
                 if (lowerInput.includes('website') || lowerInput.includes('web development') || lowerInput.includes('website banwana')) {
                     response = Sharad उच्च-गुणवत्ता वाली, तेज़ वेबसाइट्स (स्टैटिक और WordPress) बनाने में माहिर हैं। अगर आपको एक नई वेबसाइट बनवानी है, तो कृपया 'वेबसाइट या AI के लिए मैसेज करें' बटन पर क्लिक करें।;
                 } else if (lowerInput.includes('ai agent') || lowerInput.includes('ai assistant') || lowerInput.includes('ai set up') || lowerInput.includes('ai')) {
-                    response = Sharad आपके बिज़नेस के लिए कस्टम AI एजेंट्स (जैसे रिसर्च या ग्राहक सेवा) सेट अप कर सकते हैं। यह आपकी मार्केटिंग को ऑटोमेट कर सकता है। अधिक जानने के लिए कृपया उन्हें कॉल करें: +918218312429।;
+                    response = Sharad आपके बिज़नेस के लिए कस्टम AI एजेंट्स (जैसे रिसर्च या ग्राहक सेवा) सेट अप कर सकते हैं। यह आपकी मार्केटिंग को ऑटोमेट कर सकता है। अधिक जानने के लिए कृपया उन्हें कॉल करें: +918218312429।; // Updated Number
                 } else if (lowerInput.includes('maintenance') || lowerInput.includes('maintain') || lowerInput.includes('मेंटेनेंस') || lowerInput.includes('अपग्रेड')) {
                     response = पुरानी वेबसाइट्स को नया और सुरक्षित बनाने के लिए Sharad से बेहतर कोई नहीं। वह मासिक मेंटेनेंस प्लान भी देते हैं। उन्हें अपनी समस्या बताएं: 'वेबसाइट या AI के लिए मैसेज करें' बटन पर क्लिक करें।;
                 } else if (lowerInput.includes('rate') || lowerInput.includes('cost') || lowerInput.includes('कीमत') || lowerInput.includes('kitne ka')) {
@@ -182,14 +168,14 @@
                 });
             }
 
-            // Toggle chatbox visibility
+            // Toggle chatbox visibility - This is the key fix
             if(aiCharacterIcon) {
                 aiCharacterIcon.addEventListener('click', () => {
                     aiChatbox.style.display = aiChatbox.style.display === 'flex' ? 'none' : 'flex';
                 });
             }
             
-            // --- 3. GO TO TOP BUTTON LOGIC ---
+            // --- GO TO TOP BUTTON LOGIC ---
             const goToTopBtn = document.getElementById("goToTopBtn");
 
             if(goToTopBtn) {
