@@ -9,7 +9,6 @@
 </head>
 <body>
 
-
     <div id="particles-js"></div>
 
     <header>
@@ -102,6 +101,19 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             
+            // --- 1. PRELOADER LOGIC (REMOVED) ---
+            // If you added back the preloader HTML, uncomment the code below:
+            /*
+            const preloader = document.getElementById('preloader');
+            if (preloader) {
+                setTimeout(() => {
+                    preloader.style.opacity = '0';
+                    setTimeout(() => {
+                        preloader.style.display = 'none';
+                    }, 500); 
+                }, 1500); 
+            }
+            */
 
             // --- 2. AI ASSISTANT LOGIC (Marketing Focus) ---
             const aiChatbox = document.getElementById('aiChatbox');
@@ -111,7 +123,7 @@
             
             // AI Marketing Assistant का नया प्रॉम्प्ट (आपका नया काम)
             const AI_INITIAL_PROMPT = `
-नमस्ते! मैं शरत राठौर का AI मार्केटिंग असिस्टेंट हूँ। मेरा प्राथमिक काम उनकी सेवाओं को प्रमोट करना है।
+नमस्ते! मैं शरद राठौर का AI मार्केटिंग असिस्टेंट हूँ। मेरा प्राथमिक काम उनकी सेवाओं को प्रमोट करना है।
 
 *हम क्या करते हैं:*
 1.  वेबसाइट डेवलपमेंट (HTML/CSS, WordPress/E-commerce)

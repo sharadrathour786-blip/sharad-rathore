@@ -34,44 +34,7 @@ a:hover {
     color: var(--link-hover);
 }
 
-/* --- PRELOADER STYLING (Glowing Loader) --- */
-#preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--dark-bg); 
-    z-index: 10000; 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transition: opacity 0.5s ease-out;
-}
-
-.loader-ring {
-    width: 80px;
-    height: 80px;
-    border: 5px solid rgba(0, 255, 255, 0.2); 
-    border-top: 5px solid var(--primary-color); 
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-    box-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color);
-}
-
-#preloader p {
-    color: var(--secondary-color);
-    margin-top: 20px;
-    font-size: 1.1em;
-    text-shadow: 0 0 5px var(--secondary-color);
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-/* --- END PRELOADER STYLING --- */
+/* --- NOTE: PRELOADER STYLING REMOVED FROM CSS --- */
 
 /* --- Particles Background Container --- */
 #particles-js {
@@ -382,17 +345,15 @@ footer {
     z-index: 10;
 }
 
-/* --- AI Assistant Styling --- */
+/* --- AI Assistant Styling (FIXED POSITION) --- */
 .ai-assistant-container {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
+    /* Main container is mostly for grouping, icons are fixed directly */
     z-index: 1000; 
 }
 
 /* --- AI Character Icon Styling --- */
 .ai-character-icon {
-    position: absolute;
+    position: fixed; /* FIXED TO STAY IN PLACE */
     bottom: 50px; 
     right: 50px; 
     z-index: 1001; 
@@ -418,30 +379,6 @@ footer {
     50% { transform: translateY(-10px); }
     100% { transform: translateY(0); }
 }
-/* --- END AI Character Icon Styling --- */
-
-
-.ai-assistant-btn {
-    background: var(--blue-glow); 
-    color: var(--dark-bg);
-    border: none;
-    padding: 10px 15px;
-    border-radius: 25px;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 1em;
-    box-shadow: 0 0 15px var(--blue-glow);
-    transition: all 0.3s;
-}
-
-.ai-assistant-btn:hover {
-    background: #00cccc;
-    box-shadow: 0 0 20px #00ffff;
-}
-
-.ai-assistant-btn i {
-    margin-right: 8px;
-}
 
 .ai-chatbox {
     width: 300px;
@@ -450,13 +387,14 @@ footer {
     border: 2px solid var(--yellow-glow);
     border-radius: 10px;
     box-shadow: 0 0 20px var(--yellow-glow);
-    position: absolute;
-    bottom: 60px; 
-    right: 0;
+    position: fixed; /* FIXED TO STAY IN PLACE */
+    bottom: 120px; /* Shifted up above the icon */
+    right: 20px;
     display: none; 
     flex-direction: column;
     padding: 10px;
     font-family: Arial, 'Noto Sans', 'Segoe UI', Tahoma, Geneva, Verdana, 'Helvetica Neue', sans-serif; 
+    z-index: 1002;
 }
 
 /* AI Output Container for Conversation History */
@@ -529,7 +467,7 @@ footer {
 }
 
 
-/* --- PORTFOLIO & CONTACT PAGE LAYOUTS --- */
+/* --- PORTFOLIO & CONTACT PAGE LAYOUTS (No changes) --- */
 
 .page-content-section {
     max-width: 1200px;
@@ -722,12 +660,14 @@ footer {
     .ai-assistant-btn { width: 100%; }
     
     .ai-chatbox {
-        width: 100%; height: 280px; bottom: 50px; right: auto; left: 0;
+        width: 100%; height: 280px; bottom: 80px; right: auto; left: 0; /* Adjusted for mobile */
     }
     
-    /* Hide the floating icon on mobile */
+    /* Hide the floating icon on mobile, but keep the space */
     .ai-character-icon {
-        display: none;
+        /* display: none; */ 
+        bottom: 10px; 
+        right: 10px;
     }
     
     /* Go to Top Button (Shifted up on mobile to avoid AI button overlap) */
