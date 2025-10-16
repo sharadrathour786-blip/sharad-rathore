@@ -235,9 +235,9 @@ header nav a.active::after {
 /* NEW: Marketing Headline Styling */
 .marketing-headline {
     color: var(--secondary-color);
-    font-size: 1.6em; /* Slightly larger than p */
+    font-size: 1.6em; 
     margin-top: 10px;
-    margin-bottom: 25px; /* Give space before buttons */
+    margin-bottom: 25px; 
     text-shadow: 0 0 5px var(--yellow-glow);
     font-weight: 600;
 }

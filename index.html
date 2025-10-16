@@ -102,14 +102,121 @@
     </button>
     
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <script src="script.js"></script>
+    
     <script>
-        // Initialize particles.js for the background effect
-        particlesJS.load('particles-js', 'particles.json', function() {
-            console.log('particles.js loaded - callback');
-        });
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // --- 1. PRELOADER LOGIC ---
+            const preloader = document.getElementById('preloader');
+            if (preloader) {
+                setTimeout(() => {
+                    preloader.style.opacity = '0';
+                    setTimeout(() => {
+                        preloader.style.display = 'none';
+                    }, 500); 
+                }, 1500); 
+            }
 
-        // Ensure you replace the phone and WhatsApp links above with your actual number.
+            // --- 2. AI ASSISTANT LOGIC (Marketing Focus) ---
+            const aiChatbox = document.getElementById('aiChatbox');
+            const aiCharacterIcon = document.getElementById('aiCharacterIcon');
+            const aiOutput = document.getElementById('aiOutput');
+            const aiInput = document.getElementById('ai-input');
+            
+            // AI Marketing Assistant का नया प्रॉम्प्ट (आपका नया काम)
+            const AI_INITIAL_PROMPT = `
+नमस्ते! मैं शरत राठौर का AI मार्केटिंग असिस्टेंट हूँ। मेरा प्राथमिक काम उनकी सेवाओं को प्रमोट करना है।
+
+*हम क्या करते हैं:*
+1.  वेबसाइट डेवलपमेंट (HTML/CSS, WordPress/E-commerce)
+2.  वेबसाइट मेंटेनेंस और अपग्रेड
+3.  कस्टम AI एजेंट सेटअप (आपके बिज़नेस के लिए)
+
+*मैं आपकी क्या मदद कर सकता हूँ?*
+1.  मैं आपको Sharad की सेवाओं के बारे में बता सकता हूँ।
+2.  मैं आपको उनकी सेवाओं के लिए 'Contact' पेज पर जाने या 'अभी कॉल करें' बटन का उपयोग करने के लिए कह सकता हूँ।
+3.  मैं आपके बिज़नेस के लिए AI एजेंट के डेमो विचार दे सकता हूँ।
+
+आप मुझसे Sharad की सेवाओं के बारे में कुछ भी पूछ सकते हैं।`;
+
+            // Function to handle AI response (Simplified for demo)
+            const getAiResponse = (userInput) => {
+                let response = "";
+                const lowerInput = userInput.toLowerCase();
+
+                // Check for marketing keywords
+                if (lowerInput.includes('website') || lowerInput.includes('web development') || lowerInput.includes('website banwana')) {
+                    response = Sharad उच्च-गुणवत्ता वाली, तेज़ वेबसाइट्स (स्टैटिक और WordPress) बनाने में माहिर हैं। अगर आपको एक नई वेबसाइट बनवानी है, तो कृपया 'वेबसाइट या AI के लिए मैसेज करें' बटन पर क्लिक करें।;
+                } else if (lowerInput.includes('ai agent') || lowerInput.includes('ai assistant') || lowerInput.includes('ai set up') || lowerInput.includes('ai')) {
+                    response = Sharad आपके बिज़नेस के लिए कस्टम AI एजेंट्स (जैसे रिसर्च या ग्राहक सेवा) सेट अप कर सकते हैं। यह आपकी मार्केटिंग को ऑटोमेट कर सकता है। अधिक जानने के लिए कृपया उन्हें कॉल करें: +919876543210।;
+                } else if (lowerInput.includes('maintenance') || lowerInput.includes('maintain') || lowerInput.includes('मेंटेनेंस') || lowerInput.includes('अपग्रेड')) {
+                    response = पुरानी वेबसाइट्स को नया और सुरक्षित बनाने के लिए Sharad से बेहतर कोई नहीं। वह मासिक मेंटेनेंस प्लान भी देते हैं। उन्हें अपनी समस्या बताएं: 'वेबसाइट या AI के लिए मैसेज करें' बटन पर क्लिक करें।;
+                } else if (lowerInput.includes('rate') || lowerInput.includes('cost') || lowerInput.includes('कीमत') || lowerInput.includes('kitne ka')) {
+                    response = कीमतें प्रोजेक्ट की जटिलता पर निर्भर करती हैं। एक साधारण वेबसाइट ₹6,000 से शुरू हो सकती है। सही कीमत जानने के लिए कृपया 'Contact' पेज पर पूरी जानकारी भेजें।;
+                } else if (lowerInput.includes('hello') || lowerInput.includes('hi') || lowerInput.includes('namaste')) {
+                     response = नमस्ते! मैं Sharad का मार्केटिंग असिस्टेंट हूँ। मैं आपके बिज़नेस के लिए वेबसाइट या AI समाधान कैसे ढूँढ सकता हूँ?;
+                } else {
+                    response = यह एक अच्छा सवाल है! Sharad से सीधे बात करने के लिए, आप 'अभी कॉल करें' बटन का उपयोग कर सकते हैं, या अपनी ज़रूरतें 'Contact' पेज पर लिख सकते हैं।;
+                }
+                
+                // Display response
+                displayMessage(response, 'ai');
+            };
+
+            // Function to display messages in the chatbox
+            const displayMessage = (message, role) => {
+                const messageDiv = document.createElement('div');
+                messageDiv.classList.add('chat-message', role);
+                messageDiv.textContent = message;
+                aiOutput.appendChild(messageDiv);
+                aiOutput.scrollTop = aiOutput.scrollHeight; 
+            };
+
+            // Event listener for AI input (Enter key)
+            if(aiInput) {
+                aiInput.addEventListener('keypress', function (e) {
+                    if (e.key === 'Enter' && aiInput.value.trim() !== '') {
+                        const userInput = aiInput.value.trim();
+                        displayMessage(userInput, 'you');
+                        aiInput.value = '';
+                        getAiResponse(userInput);
+                    }
+                });
+            }
+
+            // Toggle chatbox visibility
+            if(aiCharacterIcon) {
+                aiCharacterIcon.addEventListener('click', () => {
+                    aiChatbox.style.display = aiChatbox.style.display === 'flex' ? 'none' : 'flex';
+                });
+            }
+            
+            // --- 3. GO TO TOP BUTTON LOGIC ---
+            const goToTopBtn = document.getElementById("goToTopBtn");
+
+            if(goToTopBtn) {
+                window.onscroll = function() {scrollFunction()};
+
+                function scrollFunction() {
+                    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                        goToTopBtn.style.display = "block";
+                    } else {
+                        goToTopBtn.style.display = "none";
+                    }
+                }
+                
+                window.goToTopFunction = function() {
+                    document.body.scrollTop = 0; 
+                    document.documentElement.scrollTop = 0; 
+                }
+            }
+            
+            // Initialize particles.js for the background effect
+            particlesJS.load('particles-js', 'particles.json', function() {
+                console.log('particles.js loaded - callback');
+            });
+
+        });
     </script>
 </body>
 </html>
