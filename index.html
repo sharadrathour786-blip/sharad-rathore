@@ -9,10 +9,6 @@
 </head>
 <body>
 
-    <div id="preloader">
-        <div class="loader-ring"></div>
-        <p>Loading the Digital World...</p>
-    </div>
 
     <div id="particles-js"></div>
 
@@ -106,16 +102,6 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             
-            // --- 1. PRELOADER LOGIC ---
-            const preloader = document.getElementById('preloader');
-            if (preloader) {
-                setTimeout(() => {
-                    preloader.style.opacity = '0';
-                    setTimeout(() => {
-                        preloader.style.display = 'none';
-                    }, 500); 
-                }, 1500); 
-            }
 
             // --- 2. AI ASSISTANT LOGIC (Marketing Focus) ---
             const aiChatbox = document.getElementById('aiChatbox');
@@ -148,7 +134,7 @@
                 if (lowerInput.includes('website') || lowerInput.includes('web development') || lowerInput.includes('website banwana')) {
                     response = Sharad उच्च-गुणवत्ता वाली, तेज़ वेबसाइट्स (स्टैटिक और WordPress) बनाने में माहिर हैं। अगर आपको एक नई वेबसाइट बनवानी है, तो कृपया 'वेबसाइट या AI के लिए मैसेज करें' बटन पर क्लिक करें।;
                 } else if (lowerInput.includes('ai agent') || lowerInput.includes('ai assistant') || lowerInput.includes('ai set up') || lowerInput.includes('ai')) {
-                    response = Sharad आपके बिज़नेस के लिए कस्टम AI एजेंट्स (जैसे रिसर्च या ग्राहक सेवा) सेट अप कर सकते हैं। यह आपकी मार्केटिंग को ऑटोमेट कर सकता है। अधिक जानने के लिए कृपया उन्हें कॉल करें: +919876543210।;
+                    response = Sharad आपके बिज़नेस के लिए कस्टम AI एजेंट्स (जैसे रिसर्च या ग्राहक सेवा) सेट अप कर सकते हैं। यह आपकी मार्केटिंग को ऑटोमेट कर सकता है। अधिक जानने के लिए कृपया उन्हें कॉल करें: +918218312429।;
                 } else if (lowerInput.includes('maintenance') || lowerInput.includes('maintain') || lowerInput.includes('मेंटेनेंस') || lowerInput.includes('अपग्रेड')) {
                     response = पुरानी वेबसाइट्स को नया और सुरक्षित बनाने के लिए Sharad से बेहतर कोई नहीं। वह मासिक मेंटेनेंस प्लान भी देते हैं। उन्हें अपनी समस्या बताएं: 'वेबसाइट या AI के लिए मैसेज करें' बटन पर क्लिक करें।;
                 } else if (lowerInput.includes('rate') || lowerInput.includes('cost') || lowerInput.includes('कीमत') || lowerInput.includes('kitne ka')) {
