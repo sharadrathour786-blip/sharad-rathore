@@ -1,0 +1,152 @@
+/*
+    Sharad Snake Game Styles
+    Responsive and Neon Themed
+*/
+
+body {
+    background-color: #0a0a1a; 
+    color: #00ffff; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+}
+
+#game-container {
+    background-color: #1a1a2e;
+    border: 5px solid #00ffff;
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 450px; 
+    width: 90%; 
+}
+
+#gameCanvas {
+    background-color: #000000;
+    border: 3px solid #f0db4f; 
+    display: block;
+    margin: 0 auto 20px;
+    width: 100%; 
+    height: auto; 
+    aspect-ratio: 1 / 1; 
+}
+
+h1 {
+    font-size: 2em;
+    text-shadow: 0 0 10px #00ffff;
+}
+
+/* डिफिकल्टी सेलेक्शन स्टाइल */
+.level-select-container {
+    margin-bottom: 20px;
+}
+.level-select-container label {
+    color: #f0db4f;
+    margin-right: 10px;
+    font-size: 1.1em;
+}
+#difficulty {
+    padding: 8px 15px;
+    border: 2px solid #00ffff;
+    border-radius: 5px;
+    background-color: #1a1a2e;
+    color: #00ffff;
+    font-size: 1em;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none; 
+}
+#difficulty:focus {
+    outline: none;
+    border-color: #f0db4f;
+    box-shadow: 0 0 10px #f0db4f;
+}
+#difficulty option {
+    background-color: #0a0a1a;
+    color: #00ffff;
+}
+
+/* स्कोर और हाई स्कोर को एक साथ रखने के लिए */
+.score-display-group {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 15px;
+}
+#score {
+    font-size: 1.5em;
+    color: #f0db4f;
+}
+#high-score {
+    font-size: 1.5em;
+    color: #ff00aa; /* नियॉन पिंक/मैजेंटा */
+}
+
+.instructions {
+    margin-top: 10px;
+    color: #aaa;
+}
+
+/* बटन ग्रुप स्टाइल (Start और Pause) */
+#startButton, #pauseButton {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background-color: #00ffff;
+    color: #1a1a2e;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    transition: all 0.3s;
+    margin: 5px; 
+}
+#pauseButton {
+    background-color: #ff00aa; /* पॉज़ के लिए अलग रंग */
+    color: #fff;
+    box-shadow: 0 0 10px rgba(255, 0, 170, 0.5);
+}
+
+#startButton:hover {
+    background-color: #f0db4f;
+    color: #1a1a2e;
+    transform: scale(1.05);
+}
+
+/* --- Footer/Attribution Style --- */
+#game-container footer {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(0, 255, 255, 0.2);
+    font-size: 0.8em;
+    color: #aaa;
+}
+.music-credit {
+    margin-top: 5px;
+}
+.music-credit a {
+    color: #f0db4f; 
+    text-decoration: underline;
+}
+
+/* --- Responsiveness for Mobile (600px से कम) --- */
+@media (max-width: 600px) {
+    #game-container {
+        border-width: 3px;
+        box-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+    }
+    h1 {
+        font-size: 1.2em;
+    }
+    #score, #high-score {
+        font-size: 1em; 
+    }
+    #startButton, #pauseButton {
+        padding: 8px 15px;
+        font-size: 1em;
+    }
+}

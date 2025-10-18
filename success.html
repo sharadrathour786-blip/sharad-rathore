@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Sent Successfully!</title>
+    <link rel="stylesheet" href="styles.css"> 
+    
+    <link rel="manifest" href="/manifest.json"> 
+    <meta name="theme-color" content="#00ffff">
+
+    <style>
+        /* Specific styling for the success message to ensure it looks good */
+        .success-section {
+            min-height: 80vh; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+        .success-section h1 {
+            font-size: 3em;
+            color: #f0db4f;
+            text-shadow: 0 0 15px #f0db4f, 0 0 20px rgba(240, 219, 79, 0.5);
+            margin-bottom: 10px;
+        }
+        .success-section h2 {
+            font-size: 1.5em;
+            color: #00ffff;
+            text-shadow: 0 0 10px #00ffff;
+            margin-bottom: 40px;
+        }
+        .home-link {
+            text-decoration: none;
+            font-size: 1.2em;
+            color: #ff00aa; /* Neon Pink */
+            padding: 10px 25px;
+            border: 2px solid #ff00aa;
+            border-radius: 5px;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        .home-link:hover {
+            background-color: #ff00aa;
+            color: #0a0a1a;
+            box-shadow: 0 0 15px #ff00aa;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="header-title">Sharad Rathore</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <div id="main-content">
+        <section class="success-section">
+            <h1 class="neon-text-yellow">✅ MESSAGE RECEIVED!</h1>
+            <h2 class="neon-text-cyan">आपका संदेश सफलतापूर्वक भेज दिया गया है। मैं जल्द ही आपसे संपर्क करूँगा।</h2>
+            <a href="index.html" class="home-link">
+                होम पेज पर वापस जाएँ
+            </a>
+        </section>
+    </div>
+    
+    <canvas id="background-canvas"></canvas>
+    <script>
+        // Star Animation Logic (Repeat from index.html)
+        const canvas = document.getElementById('background-canvas');
+        const ctx = canvas.getContext('2d');
+        let stars = [];
+        let w, h;
+
+        function resize() {
+            w = canvas.width = window.innerWidth;
+            h = canvas.height = document.documentElement.scrollHeight || window.innerHeight;
+            stars = [];
+            for (let i = 0; i < 200; i++) { 
+                stars.push({
+                    x: Math.random() * w, y: Math.random() * h,
+                    z: Math.random() * 5, 
+                    radius: Math.random() * 2 + 0.5,
+                    color: 'rgba(255, 255, 255, ' + (Math.random() * 0.8 + 0.2) + ')'
+                });
+            }
+        }
+
+        function draw() {
+            ctx.fillStyle = '#000000'; 
+            ctx.fillRect(0, 0, w, h);
+
+            for (let i = 0; i < stars.length; i++) {
+                const star = stars[i];
+                star.x += star.z * 0.05; 
+                star.y += star.z * 0.05;
+                if (star.x < 0 || star.x > w) star.x = star.x < 0 ? w : 0;
+                if (star.y < 0 || star.y > h) star.y = star.y < 0 ? h : 0;
+                ctx.beginPath();
+                ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+                ctx.fillStyle = star.color;
+                ctx.fill();
+            }
+            requestAnimationFrame(draw);
+        }
+
+        window.addEventListener('resize', resize);
+        setTimeout(() => {
+            resize();
+            draw();
+        }, 100);
+    </script>
+</body>
+</html>

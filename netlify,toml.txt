@@ -1,27 +1,9 @@
-# Netlify Configuration File for Security Headers (Grade 'A' Fix)
-
-# यह बताता है कि नीचे दिए गए हेडर वेबसाइट के सभी URL (/*) पर लागू होंगे।
 [[headers]]
   for = "/*"
-
   [headers.values]
-    
-    # 1. Content-Security-Policy (CSP): सबसे महत्वपूर्ण फिक्स। 
-    # XSS हमलों को रोकने के लिए बाहरी रिसोर्स को अनुमति देता है।
-    # 'unsafe-inline' आपके HTML में लिखे गए इनलाइन CSS/JS को लोड करने के लिए ज़रूरी है।
-    Content-Security-Policy = "default-src 'self' https://cdn.jsdelivr.net https://fonts.gstatic.com; script-src 'self' https://cdn.jsdelivr.net 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' data: https://fonts.gstatic.com"
-
-    # 2. X-Frame-Options: Clickjacking से बचाता है। (रिपोर्ट में मिसिंग था)
-    X-Frame-Options = "SAMEORIGIN"
-
-    # 3. X-Content-Type-Options: MIME Sniffing से बचाता है। (रिपोर्ट में मिसिंग था)
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
-
-    # 4. Referrer-Policy: बताता है कि रेफरर की जानकारी कितनी भेजी जाए। (रिपोर्ट में मिसिंग था)
     Referrer-Policy = "strict-origin-when-cross-origin"
-
-    # 5. Permissions-Policy: ब्राउज़र सुविधाओं को नियंत्रित करता है। (रिपोर्ट में मिसिंग था)
-    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
-
-    # 6. Strict-Transport-Security (HSTS): सुनिश्चित करता है कि ब्राउज़र हमेशा HTTPS का उपयोग करे। (पहले से ठीक था, लेकिन सुरक्षा के लिए शामिल है)
-    Strict-Transport-Security = "max-age=63072000; includeSubDomains"
+    Permissions-Policy = "geolocation=(), microphone=()"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https://www.google-analytics.com; frame-src 'none';"

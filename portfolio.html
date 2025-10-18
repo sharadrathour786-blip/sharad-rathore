@@ -3,125 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sharad Rathore - Web Developer | Portfolio</title>
-    
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" /> 
+    <title>Sharad's Portfolio - Projects</title>
+    <link rel="stylesheet" href="styles.css"> 
+    <link rel="manifest" href="/manifest.json"> 
+    <script src="https://unpkg.com/scrollreveal"></script>
 </head>
 <body>
-    <div id="preloader">
-        <div class="loader-ring"></div>
-        <p>Loading Sharad Rathore...</p>
-    </div>
+    <canvas id="background-canvas"></canvas>
     
-    <div id="particles-js"></div> 
-
     <header>
-        <div class="header-container">
-            <div class="logo">Sharad Rathore</div>
-            <nav>
-                <a href="index.html">Home</a>
-                <a href="portfolio.html" class="active">Portfolio</a>
-                <a href="contact.html">Contact</a>
-            </nav>
-        </div>
+        <h1 class="header-title">Sharad Rathore</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="portfolio.html" class="active">Portfolio</a>
+            <a href="contact.html">Contact</a>
+        </nav>
     </header>
 
-    <main class="page-content-section">
-        <h2 data-aos="fade-down">My Work & Projects</h2>
+    <div id="main-content">
         
-        <div class="portfolio-grid">
+        <section id="portfolio-section" class="section-portfolio">
+            <h1 class="neon-text-yellow">My Work & Projects</h1>
             
-            <div class="project-card" data-aos="fade-right" data-aos-delay="100">
-                <h3>Classic System: Snake Game</h3>
-                <p>Vanilla JavaScript का उपयोग करके बनाया गया एक रेट्रो स्नेक गेम। इसमें HTML canvas और स्वच्छ गेम लॉजिक का उपयोग किया गया है।</p>
-                <a href="#" class="button primary-btn" target="_blank">Live Demo</a>
+            <div class="project-card-container">
+                
+                <div class="project-card">
+                    <h2>Classic System: Snake Game</h2>
+                    <p>Vanilla JavaScript का उपयोग करके बनाया गया एक रेट्रो स्नेक गेम जिसमें HTML canvas और स्वच्छ गेम लॉजिक का उपयोग किया गया है। (PWA Enabled)</p>
+                    <a href="./SnakeGame/snake.html" class="live-demo-button">
+                        LIVE DEMO
+                    </a>
+                </div>
+                
+                <div class="project-card">
+                    <h2>Modern E-commerce UI</h2>
+                    <p>ReactJS और आधुनिक CSS का उपयोग करके डिज़ाइन किया गया एक तेज़ और रिस्पॉन्सिव ई-कॉमर्स यूज़र इंटरफ़ेस (UI)।</p>
+                    <a href="link-to-ecommerce-demo" class="live-demo-button">
+                        LIVE DEMO
+                    </a>
+                </div>
+                
+                <div class="project-card">
+                    <h2>Developer Portfolio</h2>
+                    <p>यह स्टाइलिश और मॉडर्न पोर्टफोलियो वेबसाइट, जो HTML, CSS और JS में की मेरी कोशिश को दिखाता है।</p>
+                    <a href="link-to-view-code" class="live-demo-button">
+                        VIEW CODE
+                    </a>
+                </div>
+                
             </div>
+        </section>
+        
+    </div>
+    
+    <script src="ai.assistant.js"></script>
+    <script>
+        // 🛑 2. Canvas Animation Logic (Star Field Effect) - REPEAT
+        const canvas = document.getElementById('background-canvas');
+        const ctx = canvas.getContext('2d');
+        let stars = [];
+        let w, h;
 
-            <div class="project-card" data-aos="fade-up" data-aos-delay="300">
-                <h3>Modern E-commerce UI</h3>
-                <p>React.js और आधुनिक CSS का उपयोग करके डिज़ाइन किया गया एक तेज़ और रिस्पॉन्सिव ई-कॉमर्स यूजर इंटरफ़ेस (UI)।</p>
-                <a href="#" class="button primary-btn" target="_blank">Live Demo</a>
-            </div>
-            
-            <div class="project-card" data-aos="fade-left" data-aos-delay="500">
-                <h3>Developer Portfolio</h3>
-                <p>यह स्टाइलिश और ग्लोइंग पोर्टफोलियो वेबसाइट, जो HTML, CSS और JS में मेरे कौशल को दिखाती है।</p>
-                <a href="#" class="button primary-btn" target="_blank">View Code</a>
-            </div>
-            
-        </div>
-    </main>
-    
-    <button id="goToTopBtn" class="go-to-top-btn" title="Go to top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-    
-    <footer>
-        <p>© 2025 Sharad Rathore. All rights reserved.</p>
-    </footer>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
-    <script>
-        particlesJS('particles-js', {
-            "particles": {
-                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
-                "color": { "value": "#00ffff" }, 
-                "shape": { "type": "circle" },
-                "opacity": { "value": 0.5, "random": false },
-                "size": { "value": 3, "random": true },
-                "line_linked": { "enable": true, "distance": 150, "color": "#00ffff", "opacity": 0.4, "width": 1 },
-                "move": { "enable": true, "speed": 6, "direction": "none", "random": false, "straight": false, "out_mode": "out" }
-            },
-            "interactivity": {
-                "detect_on": "canvas",
-                "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
-                "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 1 } }, "push": { "particles_nb": 4 } }
-            },
-            "retina_detect": true
-        });
-    </script>
-    
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> 
-    <script>
-      AOS.init({
-        duration: 1000, 
-        once: true,     
-        easing: 'ease-in-out', 
-      });
-    </script>
-    
-    <script>
-        window.addEventListener('load', function() {
-            const preloader = document.getElementById('preloader');
-            if (preloader) {
-                preloader.style.opacity = '0';
-                setTimeout(() => {
-                    preloader.style.display = 'none';
-                }, 500); 
+        function resize() {
+            w = canvas.width = window.innerWidth;
+            h = canvas.height = document.documentElement.scrollHeight;
+            stars = [];
+            for (let i = 0; i < 200; i++) { 
+                stars.push({
+                    x: Math.random() * w, y: Math.random() * h,
+                    z: Math.random() * 5, 
+                    radius: Math.random() * 2 + 0.5,
+                    color: 'rgba(255, 255, 255, ' + (Math.random() * 0.8 + 0.2) + ')'
+                });
             }
-        });
-    </script>
-    
-    <script>
-        const goToTopBtn = document.getElementById("goToTopBtn");
+        }
 
-        window.onscroll = function() {
-            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-                goToTopBtn.style.display = "block";
-            } else {
-                goToTopBtn.style.display = "none";
+        function draw() {
+            ctx.fillStyle = '#000000'; 
+            ctx.fillRect(0, 0, w, h);
+
+            for (let i = 0; i < stars.length; i++) {
+                const star = stars[i];
+                star.x += star.z * 0.05; 
+                star.y += star.z * 0.05;
+                if (star.x < 0 || star.x > w) star.x = star.x < 0 ? w : 0;
+                if (star.y < 0 || star.y > h) star.y = star.y < 0 ? h : 0;
+                ctx.beginPath();
+                ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+                ctx.fillStyle = star.color;
+                ctx.fill();
             }
-        };
+            requestAnimationFrame(draw);
+        }
 
-        goToTopBtn.addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
+        window.addEventListener('resize', resize);
+        setTimeout(() => { resize(); draw(); }, 100);
     </script>
 </body>
 </html>
