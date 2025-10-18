@@ -1,0 +1,26 @@
+# Netlify Configuration File
+
+# यह सेक्शन बताता है कि नीचे दिए गए हेडर सभी फ़ाइलों पर लागू होंगे
+[[headers]]
+  for = "/*"
+
+  [headers.values]
+    # 1. Content-Security-Policy (CSP): सबसे ज़रूरी फिक्स 
+    # यह सुनिश्चित करता है कि केवल सुरक्षित जगह से ही स्क्रिप्ट, स्टाइल और फ़ॉन्ट लोड हों।
+    # मैंने इसमें Google Fonts और CDN के लिए जगह दी है जो आप उपयोग कर रहे हैं।
+    Content-Security-Policy = "default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; img-src 'self' data:; connect-src 'self'"
+
+    # 2. X-Frame-Options: Clickjacking से बचाता है (जो रिपोर्ट में MISSING था)
+    X-Frame-Options = "SAMEORIGIN"
+
+    # 3. X-Content-Type-Options: MIME sniffing से बचाता है (जो रिपोर्ट में MISSING था)
+    X-Content-Type-Options = "nosniff"
+    
+    # 4. Referrer-Policy: बताता है कि रेफरर की जानकारी कितनी भेजी जाए (जो रिपोर्ट में MISSING था)
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+    # 5. Permissions-Policy: ब्राउज़र सुविधाओं को नियंत्रित करता है (जो रिपोर्ट में MISSING था)
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), fullscreen=(self)"
+
+    # 6. Strict-Transport-Security (HSTS): रिपोर्ट में यह पहले से सही था, लेकिन इसे दोबारा डालना अच्छा है
+    Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
