@@ -3,65 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sharad Snake Game</title>
+    <title>Sharad's Snake Game</title>
     
-    <link rel="manifest" href="/manifest.json">
-    
-    <link rel="stylesheet" href="snake.css">
+    <link rel="stylesheet" href="/styles.css"> 
+    <link rel="stylesheet" href="./snake.css"> 
 </head>
 <body>
-    <audio id="backgroundMusic" loop>
-        <source src="music/The_Grand_Score.mp3" type="audio/mpeg"> 
-        Your browser does not support the audio element.
-    </audio>
+    <header>
+        <h1 class="header-title">Sharad Rathore</h1>
+        <nav>
+            <a href="/index.html">Home</a> 
+            <a href="/portfolio.html">Portfolio</a>
+            <a href="/contact.html">Contact</a>
+        </nav>
+    </header>
 
-    <div id="game-container">
-        <canvas id="gameCanvas" width="400" height="400"></canvas>
-        
-        <div id="game-controls">
-            <h1>Sharad Snake Game</h1>
+    <div id="main-content" style="padding-top: 50px;">
+        <section style="display: flex; flex-direction: column; align-items: center;">
+            <h1 class="neon-text-cyan">CLASSIC SYSTEM: SNAKE GAME</h1>
             
-            <div class="level-select-container">
-                <label for="difficulty">Difficulty:</label>
-                <select id="difficulty">
-                    <option value="easy">Easy</option>
-                    <option value="medium" selected>Medium</option>
-                    <option value="hard">Hard</option>
-                </select>
+            <div id="game-container">
+                <canvas id="gameCanvas" width="400" height="400"></canvas>
+                <div id="score-board">Score: 0</div>
+                <button id="startButton" class="ai-button">Start Game</button>
             </div>
             
-            <div class="score-display-group">
-                <div id="score">Score: 0</div>
-                <div id="high-score">High Score: 0</div> 
-            </div>
-            
-            <button id="startButton">Start Game</button>
-            <button id="pauseButton" style="display: none;">Pause</button> 
-            
-            <p class="instructions">Use Arrow Keys or SPACE to Pause!</p>
-        </div>
-        
-        <footer>
-            <p>Game Design & Code &copy; 2025 Sharad Rathore.</p>
-            <p class="music-credit">
-                Music: "Main Theme (Overture) | The Grand Score" by Alexander Nakarada. <br>
-                Licensed under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>. 
-                Promoted by Chosic.com
-            </p>
-        </footer>
+        </section>
     </div>
-    
-    <script src="snake.js"></script>
-    
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                // Service Worker Root Folder से लोड होगा
-                navigator.serviceWorker.register('/service-worker.js') 
-                    .then(reg => console.log('Service Worker registered: ', reg))
-                    .catch(err => console.log('Service Worker registration failed: ', err));
-            });
-        }
-    </script>
+
+    <script src="./snake.js"></script> 
 </body>
 </html>
